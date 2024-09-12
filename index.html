@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <h1>Calculate Your MARKS <br>And Get Your <br> Grade OR Percentage</h1>
+             <div>
+                <label for="TotelMath">Total Marks Of Math</label>
+                <br>
+                <input type="number" id="TotelMath">
+             </div>
+            <br>
+            <div>
+                <label for="ObtainedMath">Obtained Marks of Math</label>
+                <br>
+                <input type="number" id="ObtainedMath">
+            </div>
+            <br>
+            <div>
+                <label for="TotelPhysics">Total Marks Of Physics</label>
+                <br>
+                <input type="number" id="TotelPhysics">
+            </div>
+            <br>
+            <div>
+                <label for="ObtainedPhysics">Obtained Marks of Physics</label>
+                <br>
+                <input type="number" id="ObtainedPhysics">
+            </div>
+            <br>
+            <div>
+                <label for="TotelChemistry">Total Marks Of Chemistry</label>
+                <br>
+                <input type="number" id="TotelChemistry">
+            </div>
+            <br>
+            <div>
+                <label for="ObtainedChemistry">Obtained Marks of Chemistry</label>
+                <br>
+                <input type="number" id="ObtainedChemistry">
+            </div>
+            <br>
+            <button type="button" onclick="calculateResult()">Check Result</button>
+            <div id="Result"></div>
+        </form>
+    </div>
+    <script>
+        function calculateResult() {
+
+            let TotelMath = parseFloat(document.querySelector("#TotelMath").value);
+            let ObtainedMath = parseFloat(document.querySelector("#ObtainedMath").value);
+
+            let TotelPhysics = parseFloat(document.querySelector("#TotelPhysics").value);
+            let ObtainedPhysics = parseFloat(document.querySelector("#ObtainedPhysics").value);
+
+            let TotelChemistry = parseFloat(document.querySelector("#TotelChemistry").value);
+            let ObtainedChemistry = parseFloat(document.querySelector("#ObtainedChemistry").value);
+
+            let totelMarks = TotelMath + TotelPhysics + TotelChemistry;
+            let totelObtained = ObtainedMath + ObtainedPhysics + ObtainedChemistry;
+
+            let percentage = (totelObtained / totelMarks) * 100;
+
+            let grade = "";
+            if (percentage < 33) {
+                grade = "Fail";
+            } else if (percentage >= 33 && percentage < 40) {
+                grade = "E";
+                // let result = document.querySelector("#Result");
+                // result.innerHTML = 'Your Percentage:(33)% <br> Your Grade: E {Fail}';
+
+
+            }
+             else if (percentage >= 40 && percentage < 50) {
+                grade = "D";
+                // let result = document.querySelector("#Result");
+                // result.innerHTML = 'Your Percentage:(40)}% <br> Your Grade: D';
+
+
+            } 
+            else if (percentage >= 50 && percentage < 60) {
+                grade = "C";
+                // let result = document.querySelector("#Result");
+                // result.innerHTML = 'Your Percentage:(50<60)}% <br> Your Grade: C';
+
+
+            }
+             else if (percentage >= 60 && percentage < 70) {
+                grade = "B";
+                // let result = document.querySelector("#Result");
+                // result.innerHTML = 'Your Percentage:(60<70)}% <br> Your Grade: B';
+
+
+            }
+             else if (percentage >= 70 && percentage < 80) {
+                grade = "A";
+                // let result = document.querySelector("#Result");
+                // result.innerHTML = 'Your Percentage:(70<80)}% <br> Your Grade: A';
+
+
+            } else if (percentage >= 80 && percentage <= 100) {
+                grade = "A+";
+
+                // let result = document.querySelector("#Result");
+                // result.innerHTML = 'Your Percentage:(80<100)}% <br> Your Grade: A+';
+            }
+
+            let result = document.querySelector("#Result");
+            result.innerHTML = 'Your Percentage: ${Percentage.toFixed(2)%} <br> Your Grade: ${grade}';
+        }
+    </script>
+
+
+</body>
+</html>
